@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>eCommerce</title>
+		<title>Dapunta</title>
 <!-- Registrasi Midtrans: https://dashboard.midtrans.com/register
 👉 Dokumentasi: https://docs.midtrans.com
 👉 Demo Snap Pop-up: https://demo.midtrans.com
@@ -23,10 +23,15 @@
 
 		<!-- AlpineJS -->
 		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+		<!-- Midtrans -->
+		<script type="text/javascript"
+			src="https://app.sandbox.midtrans.com/snap/snap.js"
+			data-client-key="SB-Mid-client-WNjYajqq7LHpGozr">
+		</script>
 	</head>
-	<body>
+	<body x-data>
 		<!-- Navbar -->
-		<nav class="navbar" x-data>
+		<nav class="navbar">
 			<a href="#" class="navbar-logo">Kedai<span>Dapunta</span>.</a>
 			<div class="navbar-nav">
 				<a href="#home">Home</a>
@@ -82,14 +87,14 @@
 						<h5>Customer Detail</h5>
 						<label for="name">
 							<span>Name</span>
-							<input type="text" name="name" id="name">
+							<input type="text" name="name" id="name" autocomplete="off">
 						</label>
 						<label for="email">
-							<span>e-Mail</span>
-							<input type="email" name="email" id="email">
+							<span>Email</span>
+							<input type="email" name="email" id="email" autocomplete="off">
 						</label>
 						<label for="phone">
-							<span>No. HP</span>
+							<span>No.HP</span>
 							<input type="text" name="phone" id="phone" autocomplete="off">
 						</label>
 						<button class="checkout-button disabled" type="submit" id="checkout-button">Checkout</button>
@@ -348,7 +353,7 @@
 				<a href="#contact">Kontak</a>
 			</div>
 			<div class="credit">
-				<p>Created by : <a href="https://rbzuila.com"> @Zoe14c</a> | All Right Reserved &copy; 2024. </p>
+				<p>Created by : <a href="https://rbzuila.com"> @Zoe14c</a> |  &copy; 2024 All Rights Reserved. </p>
 			</div>
 		</footer>
 <!-- endFooter -->
