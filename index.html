@@ -65,10 +65,12 @@
 						<div class="item-detail">
 							<h3 x-text="item.name"></h3>
 							<div class="item-price">
+								<!-- 1 -->
 								<span x-text="rupiah(item.price)"></span>&times;
 								<button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
 								<span x-text="item.quantity"></span>
 								<button id="add" @click="$store.cart.add(item)">&plus;</button>&equals;
+								<!-- 2 -->
 								<span x-text="rupiah(item.total)"></span>
 							</div>
 						</div>
@@ -78,7 +80,11 @@
 					Cart is Empty
 				</h4>
 				<h4 x-show="$store.cart.items.length">
-					Total: <span x-text="rupiah($store.cart.total)"></span>
+					<!-- 3 -->
+					Sub Total: <span x-text="rupiah($store.cart.total)"></span>
+				</h4>
+				<h4 x-show="$store.cart.items.length">
+					Ongkir: <span x-text="rupiah($store.cart.total)"></span>
 				</h4>
 				<div class="form-container" x-show="$store.cart.items.length">
 					<form action="" id="checkoutForm">
@@ -97,7 +103,7 @@
 							<span>No.HP</span>
 							<input type="text" name="phone" id="phone" autocomplete="off">
 						</label>
-						<button class="checkout-button disabled" type="submit" id="checkout-button">Checkout</button>
+						<button class="checkout-button disabled" type="submit" id="checkout-button" value="checkout">Checkout</button>
 					</form>
 				</div>
 			</div>
@@ -132,8 +138,12 @@
 		<!-- endAbout -->
 		<!-- Menu -->
 		<section id="menu" class="menu">
-			<h2><span>Menu</span> Kami</h2>
-			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, repellendus numquam voluptatum.</p>
+			<h2>
+				<span>Menu</span> Kami
+			</h2>
+			<p>
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, repellendus numquam voluptatum.
+			</p>
 
 			<div class="row">
 				<div class="menu-card">
@@ -161,106 +171,13 @@
 					<h3 class="menu-card-title">- Espresso -</h3>
 					<p class="menu-card-price">IDR 15K</p>
 				</div>
-				<div class="menu-card">
-					<img src="img/menu/01.jpg" alt="Espresso 1" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/01.jpg" alt="Espresso 1" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/01.jpg" alt="Espresso 1" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/01.jpg" alt="Espresso 1" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/01.jpg" alt="Espresso 1" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/01.jpg" alt="Espresso 1" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/01.jpg" alt="Espresso 1" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/01.jpg" alt="Espresso 1" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/01.jpg" alt="Espresso 1" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/01.jpg" alt="Espresso 1" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/01.jpg" alt="Espresso 1" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/01.jpg" alt="Espresso 1" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/01.jpg" alt="Espresso 1" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/01.jpg" alt="Espresso 1" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/01.jpg" alt="Espresso 1" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/02.jpg" alt="Espresso 2" class="menu-card-img" />
-					<h3 class="menu-card-title">- Capuccino -</h3>
-					<p class="menu-card-price">IDR 25K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/03.jpg" alt="Espresso 3" class="menu-card-img" />
-					<h3 class="menu-card-title">- Latte -</h3>
-					<p class="menu-card-price">IDR 20K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/04.jpg" alt="Espresso 4" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/05.jpg" alt="Espresso 5" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso 5-</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
 		</section>
 		<!-- endMenu -->
 		<!-- Products -->
 		<section class="products" id="products" x-data="products">
-			<h2><span>Produk Unggulan</span> Kami</h2>
+			<h2>
+				<span>Produk Unggulan</span> Kami
+			</h2>
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo unde eum, ab fuga possimus iste.
 			</p>
@@ -374,7 +291,10 @@
 							<i data-feather="star"></i>
 						</div>
 						<div class="product-price">IDR 30K <span>IDR 55K</span></div>
-						<a href="#"><i data-feather="shopping-cart"></i> <span>add to cart</span></a>
+						<a href="#">
+							<i data-feather="shopping-cart"></i>
+							<span>add to cart</span>
+						</a>
 					</div>
 				</div>
 			</div>

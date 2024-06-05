@@ -44,8 +44,8 @@ document.addEventListener("alpine:init", () => {
 			const cartItem = this.items.find((item) => item.id === id);
 			// Jika barang lebih dari 1
 			if (cartItem.quantity > 1) {
+				// Telusuri 1 per 1
 				this.items = this.items.map((item) => {
-					// Telusuri id
 					if (item.id !== id) {
 						return item;
 					} else {
@@ -70,7 +70,7 @@ document.addEventListener("alpine:init", () => {
 const checkoutButton = document.querySelector("#checkoutForm");
 checkoutButton.disabled = true;
 
-const form = document.querySelector("checkout-button");
+const form = document.querySelector(".checkout-button");
 form.addEventListener("keyup", function () {
 	for (let i = 0; i < form.elements.length; i++) {
 		if (form.elements[i].value.length !== 0) {
@@ -127,11 +127,10 @@ const formatMessage = (obj) => {
 // console.log(new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(number));
 // console.log(new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'USD' }).format(number));
 // console.log(new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'EUR' }).format(number));
-
 const rupiah = (number) => {
-	return new Intl.NumberFormat("id-ID", {
-		style: "currency",
-		currency: "IDR",
+	return new Intl.NumberFormat('id-ID', {
+		style: 'currency',
+		currency: 'IDR',
 		minimumFractionDigits: 0,
 	}).format(number);
 };

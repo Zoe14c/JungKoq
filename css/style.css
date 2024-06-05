@@ -151,22 +151,9 @@ body {
 }
 
 .form-container input {
-  width: 100%;
-  text-align: center;
-}
-
-.form-container label {
-  display: flex;
-  /* justify-content: space-around; */
-  justify-content: left;
-  align-items: center;
-  margin: 1rem 0;
-}
-
-
-.form-container input {
   background-color: #ddd;
   padding: 5px;
+  width: 70%;
   font-size: 1rem;
 }
 
@@ -177,10 +164,10 @@ body {
   font-weight: bold;
   font-size: 1rem;
   border-radius: 20px;
-  /* -webkit-border-radius: 20px;
+  -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
-  -o-border-radius: 20px; */
+  -o-border-radius: 20px;
   margin: 1rem auto;
   cursor: pointer;
 }
@@ -300,10 +287,10 @@ body {
   mask-repeat: no-repeat;
   mask-size: cover;
   mask-position: center;
-  /* -webkit-mask-image: url('../img/header-bg.svg');
+  -webkit-mask-image: url('../img/header-bg.svg');
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: cover;
-  -webkit-mask-position: center; */
+  -webkit-mask-position: center;
 }
 
 .hero .content {
