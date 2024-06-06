@@ -588,7 +588,7 @@ footer .credit a {
 /* Modal Box */
 /* Item Detail */
 .modal {
-  display: none;
+  display: flex;
   position: fixed;
   z-index: 9999;
   left: 0;
@@ -610,13 +610,14 @@ footer .credit a {
   animation: animateModal 0.5s;
 }
 
+
+
 /* Modal Animation */
 @keyframes animateModal {
   from {
-    top: -3px;
+    top: -300px;
     opacity: 0;
   }
-
   to {
     top: 0;
     opacity: 1;
