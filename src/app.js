@@ -67,10 +67,10 @@ document.addEventListener("alpine:init", () => {
 });
 
 // Form Validation
-const checkoutButton = document.querySelector("#checkoutForm");
+const checkoutButton = document.querySelector(".checkout-button");
 checkoutButton.disabled = true;
 
-const form = document.querySelector(".checkout-button");
+const form = document.querySelector("#checkoutForm");
 form.addEventListener("keyup", function () {
 	for (let i = 0; i < form.elements.length; i++) {
 		if (form.elements[i].value.length !== 0) {
@@ -128,9 +128,9 @@ const formatMessage = (obj) => {
 // console.log(new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'USD' }).format(number));
 // console.log(new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'EUR' }).format(number));
 const rupiah = (number) => {
-	return new Intl.NumberFormat('id-ID', {
-		style: 'currency',
-		currency: 'IDR',
+	return new Intl.NumberFormat("id-ID", {
+		style: "currency",
+		currency: "IDR",
 		minimumFractionDigits: 0,
 	}).format(number);
 };
