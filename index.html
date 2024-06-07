@@ -86,7 +86,7 @@
 				<div class="form-container" x-show="$store.cart.items.length">
 					<form action="" id="checkoutForm">
 						<input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)">
-						<input type="hidden" name="total" x-model="($store.cart.items)">
+						<input type="hidden" name="total" x-model="$store.cart.items">
 						<h5>Customer Detail</h5>
 						<label for="name">
 							<span>Name</span>
@@ -318,7 +318,7 @@
 <!-- MyJavascript -->
 		<script src="js/script.js"></script>
 <!-- AppJS -->
-		<script src="src/app.js"></script>
-		<!-- <script src="src/app.js" async></script> -->
+		<!-- <script src="src/app.js"></script> -->
+		<script src="src/app.js" async></script>
 	</body>
 </html>

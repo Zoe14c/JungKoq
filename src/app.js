@@ -90,6 +90,7 @@ checkoutButton.addEventListener("click", async function (e) {
 	const formData = new FormData(form);
 	const data = new URLSearchParams(formData);
 	const objData = Object.fromEntries(data);
+	console.log(objData);
 	// const message = formatMessage(objData);
 	// window.open("https://wa.me/62817377322?text=" + encodeURIComponent(message));
 
@@ -102,8 +103,8 @@ checkoutButton.addEventListener("click", async function (e) {
 		const token = await response.text();
 		// Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
 		window.snap.pay(token);
-	} catch (err) {
-		console.log(err.message);
+	} catch (e) {
+		console.log(e.message);
 	}
 });
 
