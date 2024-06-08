@@ -105,8 +105,8 @@ checkoutButton.addEventListener("click", async function (e) {
 		const token = await response.text();
 		// const token = response.text();
 		// Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
-		console.log(token);
-		// window.snap.pay(token);
+		// console.log(token);
+		window.snap.pay(token);
 	} catch (err) {
 		console.log(err.message);
 	}
