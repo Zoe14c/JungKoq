@@ -91,11 +91,27 @@ checkoutButton.addEventListener("click", function (e) {
 	const formData = new FormData(form);
 	const data = new URLSearchParams(formData);
 	const objData = Object.fromEntries(data);
-	console.log(objData);
-	// const message = formatMessage(objData);
-	// window.open("https://wa.me/62817377322?text=" + encodeURIComponent(message));
+	// console.log(objData);
+	const message = formatMessage(objData);
+	window.open("https://wa.me/62817377322?text=" + encodeURIComponent(message));
 
-	// Minta token transaksi menggunakan ajax /fetch
+	// Pesan WA
+	const formatMessage = (obj) => {
+		return `Data Customer
+	Nama: ${obj.name}
+	Email: ${obj.email}
+	No HP: ${obj.phone}
+
+	Data Pesanan 
+	${JSON.parse(obj.items).map((item) => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n`)}
+
+	TOTAL: ${rupiah(obj.total)}
+	
+	Terima kasih.
+	`;
+	};
+
+// Minta token transaksi menggunakan ajax /fetch
 	try {
 		// const response = await fetch("php/placeOrder.php", {
 		const response = fetch("php/placeOrder.php", {
@@ -111,20 +127,6 @@ checkoutButton.addEventListener("click", function (e) {
 	}
 });
 
-// Pesan WA
-const formatMessage = (obj) => {
-	return `Data Customer
-	Nama: ${obj.name}
-	Email: ${obj.email}
-	No HP: ${obj.phone}
-
-	Data Pesanan 
-	${JSON.parse(obj.items).map((item) => `${item.name} (${item.quantity} x ${rupiah(item.total)} ) \n`)}
-
-	TOTAL: ${rupiah(obj.total)}
-	
-	Terima kasih.`;
-};
 // JavaScript Demo: Intl.NumberFormat
 // const number = 1234567.89;
 // console.log(new Intl.NumberFormat('id-ID').format(number));
