@@ -93,7 +93,7 @@ checkoutButton.addEventListener("click", function (e) {
 	const objData = Object.fromEntries(data);
 	// console.log(objData);
 	const message = formatMessage(objData);
-	window.open("https://wa.me/62817377322?text=" + encodeURIComponent(message));
+	window.open("http://wa.me/62817377322?text=" + encodeURIComponent(message));
 
 	// Pesan WA
 	const formatMessage = (obj) => {
