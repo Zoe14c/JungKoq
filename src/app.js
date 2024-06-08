@@ -85,19 +85,36 @@ form.addEventListener("keyup", function () {
 });
 
 // Kirim data ketika tombol checkout diklik.
-// checkoutButton.addEventListener("click", async function (e) {
-checkoutButton.addEventListener("click", function (e) {
+checkoutButton.addEventListener("click", async function (e) {
+	// checkoutButton.addEventListener("click", function (e) {
 	e.preventDefault();
 	const formData = new FormData(form);
 	const data = new URLSearchParams(formData);
 	const objData = Object.fromEntries(data);
 	// console.log(objData);
-	const message = formatMessage(objData);
-	window.open("http://wa.me/62817377322?text=" + encodeURIComponent(message));
+	// const message = formatMessage(objData);
+	// window.open("http://wa.me/62817377322?text=" + encodeURIComponent(message));
 
-	// Pesan WA
-	const formatMessage = (obj) => {
-		return `Data Customer
+	// Minta token transaksi menggunakan ajax /fetch
+	try {
+		const response = await fetch("php/placeOrder.php", {
+			// const response = fetch("php/placeOrder.php", {
+			method: "POST",
+			body: data,
+		});
+		const token = await response.text();
+		// const token = response.text();
+		// Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+		console.log(token);
+		// window.snap.pay(token);
+	} catch (err) {
+		console.log(err.message);
+	}
+});
+
+// Pesan WA
+const formatMessage = (obj) => {
+	return `Data Customer
 	Nama: ${obj.name}
 	Email: ${obj.email}
 	No HP: ${obj.phone}
@@ -109,23 +126,7 @@ checkoutButton.addEventListener("click", function (e) {
 	
 	Terima kasih.
 	`;
-	};
-
-// Minta token transaksi menggunakan ajax /fetch
-	try {
-		// const response = await fetch("php/placeOrder.php", {
-		const response = fetch("php/placeOrder.php", {
-			method: "POST",
-			body: data,
-		});
-		// const token = await response.text();
-		const token = response.text();
-		// Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
-		window.snap.pay(token);
-	} catch (err) {
-		console.log(err.message);
-	}
-});
+};
 
 // JavaScript Demo: Intl.NumberFormat
 // const number = 1234567.89;
