@@ -85,7 +85,8 @@ form.addEventListener("keyup", function () {
 });
 
 // Kirim data ketika tombol checkout diklik.
-checkoutButton.addEventListener("click", async function (e) {
+// checkoutButton.addEventListener("click", async function (e) {
+checkoutButton.addEventListener("click", function (e) {
 	e.preventDefault();
 	const formData = new FormData(form);
 	const data = new URLSearchParams(formData);
@@ -96,15 +97,17 @@ checkoutButton.addEventListener("click", async function (e) {
 
 	// Minta token transaksi menggunakan ajax /fetch
 	try {
-		const response = await fetch("php/placeOrder.php", {
+		// const response = await fetch("php/placeOrder.php", {
+		const response = fetch("php/placeOrder.php", {
 			method: "POST",
 			body: data,
 		});
-		const token = await response.text();
+		// const token = await response.text();
+		const token = response.text();
 		// Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
 		window.snap.pay(token);
-	} catch (e) {
-		console.log(e.message);
+	} catch (err) {
+		console.log(err.message);
 	}
 });
 
