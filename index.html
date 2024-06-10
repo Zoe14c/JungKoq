@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Dapunta</title>
+		<title>Kafe Bersama</title>
 <!-- Registrasi Midtrans: https://dashboard.midtrans.com/register
 👉 Dokumentasi: https://docs.midtrans.com
 👉 Demo Snap Pop-up: https://demo.midtrans.com
@@ -134,7 +134,7 @@
 		</section>
 		<!-- endAbout -->
 		<!-- Menu -->
-		<section id="menu" class="menu">
+		<section id="menu" class="menu" x-data="menus">
 			<h2>
 				<span>Menu</span> Kami
 			</h2>
@@ -143,32 +143,53 @@
 			</p>
 
 			<div class="row">
-				<div class="menu-card">
-					<!-- <a href="#" class="item-detail-button"></a> -->
+				<!-- <div class="menu-card">
 					<img src="img/menu/01.jpg" alt="Espresso 6" class="menu-card-img" />
 					<h3 class="menu-card-title">- Espresso6 -</h3>
 					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/02.jpg" alt="Espresso 2" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso2 -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/03.jpg" alt="Espresso 3" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso3 -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/04.jpg" alt="Espresso 4" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso4 -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
-				<div class="menu-card">
-					<img src="img/menu/05.jpg" alt="Espresso 5" class="menu-card-img" />
-					<h3 class="menu-card-title">- Espresso5 -</h3>
-					<p class="menu-card-price">IDR 15K</p>
-				</div>
+				</div> -->
+				<template x-for="(item, index) in items" x-key="index">
+					<div class="menu-card">
+						<div class="menu-icons">
+							<a href="#" @click.prevent="$store.cart.add(item)">
+								<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<use href="img/feather-sprite.svg#shopping-cart" />
+								</svg>
+							</a>
+							<a href="#" class="item-detail-button">
+								<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<use href="img/feather-sprite.svg#eye" />
+								</svg>
+							</a>
+						</div>
+						<div class="menu-image">
+							<img :src="`img/menu/${item.img}`" :alt="item.name">
+						</div>
+						<div class="menu-content">
+							<h3 x-text="item.name"></h3>
+							<div class="menu-stars">
+								<svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<use href="img/feather-sprite.svg#star" />
+								</svg>
+								<svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<use href="img/feather-sprite.svg#star" />
+								</svg>
+								<svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<use href="img/feather-sprite.svg#star" />
+								</svg>
+								<svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<use href="img/feather-sprite.svg#star" />
+								</svg>
+								<svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<use href="img/feather-sprite.svg#star" />
+								</svg>
+							</div>
+							<div class="menu-price">
+								<span x-text="rupiah(item.price)"></span>
+							</div>
+						</div>
+					</div>
+				</template>
 		</section>
 		<!-- endMenu -->
 		<!-- Products -->

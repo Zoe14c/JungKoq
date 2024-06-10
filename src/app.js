@@ -66,6 +66,75 @@ document.addEventListener("alpine:init", () => {
 	});
 });
 
+// MENU
+document.addEventListener("alpine:init", () => {
+	Alpine.data("menus", () => ({
+		items: [
+			{ id: 1, name: "Robusta Brazil", img: "01.jpg", price: 15000 },
+			{ id: 2, name: "Primo Passo", img: "02.jpg", price: 20000 },
+			{ id: 3, name: "Arabica Blend", img: "03.jpg", price: 25000 },
+			{ id: 4, name: "Aceh Mayo", img: "04.jpg", price: 30000 },
+			{ id: 5, name: "Cyanide Cofe", img: "05.jpg", price: 35000 },
+		],
+	}));
+
+// 	Alpine.store("cart", {
+// 		items: [],
+// 		quantity: 0,
+// 		total: 0,
+
+// 		add(newItem) {
+// 			// cek isi keranjang.
+// 			const cartItem = this.items.find((item) => item.id === newItem.id);
+// 			// jika kosong
+// 			if (!cartItem) {
+// 				this.items.push({ ...newItem, quantity: 1, total: newItem.price });
+// 				this.quantity++;
+// 				this.total += newItem.price;
+// 			} else {
+// 				// jika ada
+// 				this.items = this.items.map((item) => {
+// 					// jika barang beda
+// 					if (item.id !== newItem.id) {
+// 						return item;
+// 					} else {
+// 						// jika sudah ada, tambah quantity dan totalnya
+// 						item.quantity++;
+// 						item.total = item.price * item.quantity;
+// 						this.quantity++;
+// 						this.total += item.price;
+// 						return item;
+// 					}
+// 				});
+// 			}
+// 		},
+// 		remove(id) {
+// 			// cek isi keranjang.
+// 			const cartItem = this.items.find((item) => item.id === id);
+// 			// Jika barang lebih dari 1
+// 			if (cartItem.quantity > 1) {
+// 				// Telusuri 1 per 1
+// 				this.items = this.items.map((item) => {
+// 					if (item.id !== id) {
+// 						return item;
+// 					} else {
+// 						item.quantity--;
+// 						item.total = item.price * item.quantity;
+// 						this.quantity--;
+// 						this.total -= item.price;
+// 						return item;
+// 					}
+// 				});
+// 			} else if (cartItem.quantity === 1) {
+// 				// Jika barangnya sisa 1
+// 				this.items = this.items.filter((item) => item.id !== id);
+// 				this.quantity--;
+// 				this.total -= cart.item.price;
+// 			}
+// 		},
+// 	});
+});
+
 // Form Validation
 const checkoutButton = document.querySelector(".checkout-button");
 checkoutButton.disabled = true;
@@ -107,8 +176,8 @@ checkoutButton.addEventListener("click", async function (e) {
 		// Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
 		// console.log(token);
 		window.snap.pay(token);
-	} catch (err) {
-		console.log(err.message);
+	} catch (e) {
+		console.log(e.message);
 	}
 });
 
