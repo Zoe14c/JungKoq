@@ -163,7 +163,7 @@
 							</a>
 						</div>
 						<div class="menu-image">
-							<img :src="`img/menu/${item.img}`" :alt="item.name">
+							<img :src="`img/menus/${item.img}`" :alt="item.name">
 						</div>
 						<div class="menu-content">
 							<h3 x-text="item.name"></h3>
@@ -295,40 +295,60 @@
 		</footer>
 <!-- endFooter -->
 <!-- ModalBox -->
-		<div class="modal" id="item-detail-modal">
-			<div class="modal-container">
-				<a href="#" class="close-icon">
-					<i data-feather="x"></i>
-				</a>
-				<div class="modal-content">
-					<!-- <img :src="`img/products/${item.img}`" :alt="item.name"> -->
-					<img src="img/products/01.jpg" alt="Produk 01" />
-					<div class="product-content">
-						<h3>
-							Kopi Hebat ala jungKoq
-						</h3>
-						<p>
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, tenetur!
-						</p>
-						<div class="product-stars">
-							<i data-feather="star" class="star-full"></i>
-							<i data-feather="star" class="star-full"></i>
-							<i data-feather="star" class="star-full"></i>
-							<i data-feather="star" class="star-full"></i>
-							<i data-feather="star"></i>
+		<!-- <div class="modal" id="item-detail-modal"> -->
+		<div class="modal" id="item-detail-modal" x-data="menus">
+			<template x-for="(item, index) in items" x-key="index">
+				<div class="modal-container">
+					<a href="#" class="close-icon">
+						<i data-feather="x"></i>
+					</a>
+					<div class="modal-content">
+						<img :src="`img/menus/${item.img}`" :alt="item.name">
+						<!-- <img src="img/products/01.jpg" alt="Produk 01" /> -->
+						<div class="product-content">
+							<h3>
+								<!-- Kopi Hebat ala jungKoq -->
+								<span x-text="item.name"></span>
+							</h3>
+							<p>
+								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, tenetur!
+							</p>
+							<div class="product-stars">
+								<!-- <i data-feather="star" class="star-full"></i>
+								<i data-feather="star" class="star-full"></i>
+								<i data-feather="star" class="star-full"></i>
+								<i data-feather="star" class="star-full"></i>
+								<i data-feather="star"></i> -->
+								<svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<use href="img/feather-sprite.svg#star" />
+								</svg>
+								<svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<use href="img/feather-sprite.svg#star" />
+								</svg>
+								<svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<use href="img/feather-sprite.svg#star" />
+								</svg>
+								<svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<use href="img/feather-sprite.svg#star" />
+								</svg>
+								<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<use href="img/feather-sprite.svg#star" />
+								</svg>
+							</div>
+							<div class="product-price">
+								<!-- IDR 30K <span>IDR 55K</span> -->
+								<span x-text="rupiah(item.price)"></span>
+							</div>
+							<a href="#">
+								<i data-feather="shopping-cart"></i>
+								<span>
+									Add to cart
+								</span>
+							</a>
 						</div>
-						<div class="product-price">
-							IDR 30K <span>IDR 55K</span>
-						</div>
-						<a href="#">
-							<i data-feather="shopping-cart"></i>
-							<span>
-								Add to cart
-							</span>
-						</a>
 					</div>
 				</div>
-			</div>
+			</template>
 		</div>
 <!-- endModalBox -->
 <!-- FeatherIcons -->
